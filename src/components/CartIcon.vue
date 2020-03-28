@@ -1,7 +1,7 @@
 <template>
     <div class="cart-icon" @click="$emit('toggleCart')">
         <button class="primary">
-            <span class="icon-cart"></span>&nbsp;{{ total }}
+            <span class="icon-cart inverse"></span>&nbsp;{{ total }}
         </button>
     </div>
 </template>
