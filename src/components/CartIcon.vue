@@ -1,6 +1,8 @@
 <template>
     <div class="cart-icon" @click="$emit('toggleCart')">
-        {{ total }}
+        <button class="primary">
+            <span class="icon-cart"></span>&nbsp;{{ total }}
+        </button>
     </div>
 </template>
 
@@ -15,11 +17,12 @@
 
 <style scoped>
     .cart-icon {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 20px;
+        width: 80px;
+        height: 80px;
+        position: fixed;
+        right: 15px;
+        top: 5px;
+        padding: 10px;
+        z-index: 1000;
     }
 </style>

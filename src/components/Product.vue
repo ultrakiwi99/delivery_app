@@ -1,5 +1,5 @@
 <template>
-    <div class="product" v-if="product">
+    <div class="container" v-if="product">
         {{ product.name }}
         <div class="modifiers">
             <div class="modifier" v-for="(mod, idx) in product.modifiers" :key="idx">

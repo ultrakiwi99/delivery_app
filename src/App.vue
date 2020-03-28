@@ -54,7 +54,9 @@ export default {
       if (this.mode === 'cart') {
         this.mode = 'catalog'
       } else {
-        this.mode = 'cart';
+        if (this.cart.products.length > 0) {
+          this.mode = 'cart';
+        }
       }
     }
   }
@@ -69,5 +71,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
 }
 </style>
