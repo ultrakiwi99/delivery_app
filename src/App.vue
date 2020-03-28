@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <CartIcon :total="cart.products.length"/>
+    <CartIcon :total="cart.products.length" @toggleCart="toggleCart"/>
     <Catalog v-if="mode === 'catalog'" :products="products" @toProduct="switchToProduct"/>
-    <Product v-if="mode === 'product'" :product="selectedProduct" @toCatalog="switchToCatalog" @toCart="switchToCart"/>
+    <Product v-if="mode === 'product'" :product="selectedProduct" @toCatalog="switchToCatalog" @toCart="addToCart"/>
+    <Cart v-if="mode === 'cart'" :cart="cart" @toCheckout="switchToCheckout" @toCatalog="switchToCatalog"/>
+    <Checkout v-if="mode === 'checkout'" />
   </div>
 </template>
 
@@ -10,9 +12,11 @@
 import Catalog from "@/components/Catalog";
 import Product from "@/components/Product";
 import CartIcon from "@/components/CartIcon";
+import Cart from "@/components/Cart";
+import Checkout from "@/components/Checkout";
 export default {
   name: 'App',
-  components: {CartIcon, Product, Catalog},
+  components: {Checkout, Cart, CartIcon, Product, Catalog},
   beforeCreate() {
     this.products = this.$api
             .get('delivery/products')
@@ -39,10 +43,19 @@ export default {
       this.mode = 'catalog';
       this.selectedProduct = null;
     },
-    switchToCart(product) {
-      this.mode = 'cart';
+    addToCart(product) {
       this.cart.products.push(product);
+    },
+    switchToCheckout() {
+      this.mode = 'checkout';
+    },
+    toggleCart() {
       this.selectedProduct = null;
+      if (this.mode === 'cart') {
+        this.mode = 'catalog'
+      } else {
+        this.mode = 'cart';
+      }
     }
   }
 }

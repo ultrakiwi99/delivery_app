@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-icon">
+    <div class="cart-icon" @click="$emit('toggleCart')">
         {{ total }}
     </div>
 </template>

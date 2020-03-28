@@ -1,5 +1,15 @@
 <template>
-    <div class="cart"></div>
+    <div class="cart">
+        <ul>
+            <li v-for="(product, idx) in cart.products" :key="idx">
+                {{ product.name }}
+            </li>
+        </ul>
+        <div class="controls">
+            <button @click="$emit('toCatalog')">В Каталог</button>
+            <button @click="$emit('toCheckout')">Оформить</button>
+        </div>
+    </div>
 </template>
 
 <script>
