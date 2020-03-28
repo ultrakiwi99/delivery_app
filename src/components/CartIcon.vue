@@ -17,7 +17,7 @@
 
 <style scoped>
     .cart-icon {
-        width: 80px;
+        width: 100px;
         height: 80px;
         position: fixed;
         right: 15px;

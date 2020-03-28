@@ -1,15 +1,20 @@
 <template>
     <div class="container" v-if="product">
-        {{ product.name }}
-        <div class="modifiers">
-            <div class="modifier" v-for="(mod, idx) in product.modifiers" :key="idx">
-                {{mod.name}} {{ mod.price }} <button>+</button>
+        <div class="card">
+            <div class="section">
+                <strong>{{ product.name }}</strong>
+            </div>
+            <div class="section">
+                <div v-for="(mod, idx) in product.modifiers" :key="idx">
+                    {{mod.name}} {{ mod.price }}
+                    <button>+</button>
+                </div>
             </div>
         </div>
-        <div class="controls">
-            <button @click="$emit('toCatalog')">В каталог</button>
-            <button @click="$emit('toCart', product)">В корзину</button>
-        </div>
+        <footer class="sticky">
+            <button class="inverse" @click="$emit('toCatalog')">В каталог</button>
+            <button class="primary" @click="$emit('toCart', product)">Добавить</button>
+        </footer>
     </div>
 </template>
 

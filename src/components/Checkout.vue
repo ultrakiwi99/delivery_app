@@ -1,9 +1,13 @@
 <template>
-    <div>
-        <input type="text" placeholder="Ваше имя..." v-model="name" required>
-        <input type="text" placeholder="Куда привезти кофе..." v-model="address" required>
-        <input type="tel" placeholder="8-921-111-11-11" v-model="phone" required>
-        <button @click="makeOrder">Заказать</button>
+    <div class="container">
+        <div class="card fluid">
+            <input type="text" placeholder="Ваше имя..." v-model="name" required>
+            <input type="text" placeholder="Куда привезти кофе..." v-model="address" required>
+            <input type="tel" placeholder="8-921-111-11-11" v-model="phone" required>
+        </div>
+        <footer class="sticky" style="justify-self: end">
+            <button class="tertiary" @click="makeOrder">Заказать</button>
+        </footer>
     </div>
 </template>
 
@@ -27,7 +31,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

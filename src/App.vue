@@ -68,6 +68,9 @@
 </script>
 
 <style>
+    html {
+        height: 100vh;
+    }
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -82,5 +85,13 @@
         height: 100%;
         display: flex;
         align-items: center;
+    }
+
+    footer {
+        position: absolute;
+        z-index: 1101;
+        bottom: 0;
+        left: 0;
+        width: 100%;
     }
 </style>
